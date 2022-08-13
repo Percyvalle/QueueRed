@@ -17,7 +17,6 @@ QueueRedProfileWidget::QueueRedProfileWidget()
     m_layout_profile->addWidget(m_button_profile);
 
     m_frame_profile->setMaximumSize(QSize(420, 85));
-    m_frame_profile->setFrameShape(QFrame::NoFrame);
     m_frame_profile->setStyleSheet("QFrame{background: rgba(245, 245, 245,50%); border: 0;}"
                                    "QFrame::hover{background: #ccc; border: 0;}");
     m_frame_profile->setLayout(m_layout_profile);

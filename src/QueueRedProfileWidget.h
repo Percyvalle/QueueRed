@@ -3,12 +3,12 @@
 
 #include "QueueRedProfile.h"
 
-#include <QFrame>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QRect>
 #include <QPushButton>
 #include <QWidget>
+#include <QGroupBox>
 
 class QueueRedProfileWidget
 {
@@ -18,8 +18,6 @@ public:
     ~QueueRedProfileWidget();
 
     QFrame* create_widget(QueueRedProfile* _profile);
-
-    void delete_widget();
 
     void hide_widget();
 

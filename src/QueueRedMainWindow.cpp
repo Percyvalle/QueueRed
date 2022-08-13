@@ -1,6 +1,7 @@
 #include "QueueRedMainWindow.h"
 #include "ui_QueueRedMainWindow.h"
 
+#include <QDebug>
 
 QueueRedMainWindow::QueueRedMainWindow(QWidget *_parent)
     : QMainWindow(_parent)
@@ -14,7 +15,7 @@ QueueRedMainWindow::QueueRedMainWindow(QWidget *_parent)
 
     QueueRedProfile *profile = new QueueRedProfile("Danya");
     QueueRedProfileWidget *wi = new QueueRedProfileWidget();
-    ui->profile_area->setWidget(wi->create_widget(profile));
+    ui->profile_layout->layout()->addWidget(wi->create_widget(profile));
 }
 
 QueueRedMainWindow::~QueueRedMainWindow()
