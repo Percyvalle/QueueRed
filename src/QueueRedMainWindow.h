@@ -35,6 +35,10 @@ private slots:
      ***/
     void tasks_button();
 
+    /***
+     * @brief Слот отвечающий на создание профиля
+     * @param but Кнопка для коннекта с основным окном
+     ***/
     void profile_connection(QPushButton* but);
 
     void profile_members_button();

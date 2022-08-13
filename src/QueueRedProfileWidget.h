@@ -10,6 +10,9 @@
 #include <QWidget>
 #include <QGroupBox>
 
+/*!
+ * \brief Класс для представления визиток для пользователей
+ */
 class QueueRedProfileWidget : public QObject
 {
     Q_OBJECT

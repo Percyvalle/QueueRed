@@ -3,6 +3,12 @@
 
 #include "QueueRedProfile.h"
 
+
+/*!
+    \brief Класс наследник от QueueRedProfile
+
+    Представление профилей для сотрудников
+*/
 class QueueRedProfileMember : public QueueRedProfile
 {
 public:

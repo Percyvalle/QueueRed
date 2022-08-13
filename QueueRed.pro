@@ -1,4 +1,4 @@
-VERSION = 0.1.2
+VERSION = 0.1.3
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,6 +10,7 @@ OBJECTS_DIR = .build
 UI_DIR = .build
 
 SOURCES += \
+    src/QueueRedClientSocket.cpp \
     src/QueueRedMainWindow.cpp \
     src/QueueRedProfile.cpp \
     src/QueueRedProfileMember.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
     src/main.cpp
 
 HEADERS += \
+    src/QueueRedClientSocket.h \
     src/QueueRedMainWindow.h \
     src/QueueRedProfile.h \
     src/QueueRedProfileMember.h \

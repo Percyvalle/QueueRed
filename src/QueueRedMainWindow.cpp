@@ -20,6 +20,7 @@ QueueRedMainWindow::QueueRedMainWindow(QWidget *_parent)
     ui->profile_layout->layout()->addWidget(profile_widget->create_widget(profilek));
     QueueRedProfile *profilev = new QueueRedProfile("Vlad");
     ui->profile_layout->layout()->addWidget(profile_widget->create_widget(profilev));
+
 }
 
 QueueRedMainWindow::~QueueRedMainWindow()
@@ -63,3 +64,17 @@ void QueueRedMainWindow::profile_members_button()
     QPushButton *sender_button = (QPushButton*)sender();
     qDebug() << sender_button->text();
 }
+
+// Позже
+//void QueueRedMainWindow::sendData() {
+//    QNetworkRequest request(QUrl("http://127.0.0.1:2000"));
+//    QNetworkAccessManager *mngr = new QNetworkAccessManager(this);
+//    connect(mngr, SIGNAL(finished(QNetworkReply*)), SLOT(getResponse(QNetworkReply*)));
+//    mngr->get(request);
+//}
+
+//void QueueRedMainWindow::getResponse(QNetworkReply *reply)
+//{
+//    qDebug() << reply->readAll();
+//}
+
