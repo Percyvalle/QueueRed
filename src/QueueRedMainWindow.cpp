@@ -2,6 +2,7 @@
 #include "ui_QueueRedMainWindow.h"
 
 #include <QDebug>
+#include <QLayout>
 
 QueueRedMainWindow::QueueRedMainWindow(QWidget *_parent)
     : QMainWindow(_parent)
@@ -14,8 +15,11 @@ QueueRedMainWindow::QueueRedMainWindow(QWidget *_parent)
     ui->icon_search->setPixmap(icon_search.scaled(20, 20, Qt::KeepAspectRatio));
 
     QueueRedProfile *profile = new QueueRedProfile("Danya");
-    QueueRedProfileWidget *wi = new QueueRedProfileWidget();
-    ui->profile_layout->layout()->addWidget(wi->create_widget(profile));
+    ui->profile_layout->layout()->addWidget(profile_widget->create_widget(profile));
+    QueueRedProfile *profilek = new QueueRedProfile("Kirill");
+    ui->profile_layout->layout()->addWidget(profile_widget->create_widget(profilek));
+    QueueRedProfile *profilev = new QueueRedProfile("Vlad");
+    ui->profile_layout->layout()->addWidget(profile_widget->create_widget(profilev));
 }
 
 QueueRedMainWindow::~QueueRedMainWindow()
@@ -27,6 +31,9 @@ void QueueRedMainWindow::connectionUI(){
     connect(ui->employees_button, SIGNAL(clicked()), this, SLOT(employees_button()));
     connect(ui->profile_button, SIGNAL(clicked()), this, SLOT(profile_button()));
     connect(ui->tasks_button, SIGNAL(clicked()), this, SLOT(tasks_button()));
+
+    connect(profile_widget, SIGNAL(create_signal(QPushButton*)),
+            this, SLOT(profile_connection(QPushButton*)));
 }
 
 void QueueRedMainWindow::employees_button()
@@ -44,4 +51,15 @@ void QueueRedMainWindow::profile_button()
 void QueueRedMainWindow::tasks_button()
 {
     ui->stackedWidget->setCurrentIndex(2);
+}
+
+void QueueRedMainWindow::profile_connection(QPushButton *but)
+{
+    connect(but, SIGNAL(clicked()), this, SLOT(profile_members_button()));
+}
+
+void QueueRedMainWindow::profile_members_button()
+{
+    QPushButton *sender_button = (QPushButton*)sender();
+    qDebug() << sender_button->text();
 }

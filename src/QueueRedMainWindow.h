@@ -35,7 +35,13 @@ private slots:
      ***/
     void tasks_button();
 
+    void profile_connection(QPushButton* but);
+
+    void profile_members_button();
+
 private:
     Ui::QueueRedMainWindow *ui;
+
+    QueueRedProfileWidget *profile_widget = new QueueRedProfileWidget();
 };
 #endif // QUEUEREDMAINWINDOW_H

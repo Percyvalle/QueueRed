@@ -10,10 +10,11 @@
 #include <QWidget>
 #include <QGroupBox>
 
-class QueueRedProfileWidget
+class QueueRedProfileWidget : public QObject
 {
+    Q_OBJECT
 public:
-    QueueRedProfileWidget();
+    explicit  QueueRedProfileWidget(QObject *_parent = NULL);
 
     ~QueueRedProfileWidget();
 
@@ -23,12 +24,15 @@ public:
 
     void show_widget();
 
+signals:
+    void create_signal(QPushButton*);
+
 private:
-    QFrame *m_frame_profile = new QFrame();
-    QHBoxLayout *m_layout_profile = new QHBoxLayout();
-    QPushButton *m_button_profile = new QPushButton();
-    QLabel *m_status_label = new QLabel();
-    QLabel *m_photo_label = new QLabel();
+    QFrame *m_frame_profile;
+    QHBoxLayout *m_layout_profile;
+    QPushButton *m_button_profile;
+    QLabel *m_status_label;
+    QLabel *m_photo_label;
 };
 
 #endif // QUEUEREDPROFILEWIDGET_H
