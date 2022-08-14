@@ -2,15 +2,15 @@
 
 QueueRedProfile::QueueRedProfile(QString _name)
 {
-    this->name = _name;
+    this->m_name = _name;
 }
 
 const QString &QueueRedProfile::getName() const
 {
-    return name;
+    return m_name;
 }
 
 void QueueRedProfile::setName(const QString &newName)
 {
-    name = newName;
+    m_name = newName;
 }

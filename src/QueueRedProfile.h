@@ -19,7 +19,7 @@ public:
     void setName(const QString &newName);
 
 private:
-    QString name;
+    QString m_name;
 };
 
 #endif // QUEUEREDPROFILE_H

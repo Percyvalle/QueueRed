@@ -4,6 +4,8 @@
 #include <QDebug>
 #include <QLayout>
 
+#include <src/QueueRedClientSocket.h>
+
 QueueRedMainWindow::QueueRedMainWindow(QWidget *_parent)
     : QMainWindow(_parent)
     , ui(new Ui::QueueRedMainWindow)
@@ -15,12 +17,15 @@ QueueRedMainWindow::QueueRedMainWindow(QWidget *_parent)
     ui->icon_search->setPixmap(icon_search.scaled(20, 20, Qt::KeepAspectRatio));
 
     QueueRedProfile *profile = new QueueRedProfile("Danya");
-    ui->profile_layout->layout()->addWidget(profile_widget->create_widget(profile));
+    ui->profile_layout->layout()->addWidget(m_profile_widget->create_widget(profile));
     QueueRedProfile *profilek = new QueueRedProfile("Kirill");
-    ui->profile_layout->layout()->addWidget(profile_widget->create_widget(profilek));
+    ui->profile_layout->layout()->addWidget(m_profile_widget->create_widget(profilek));
     QueueRedProfile *profilev = new QueueRedProfile("Vlad");
-    ui->profile_layout->layout()->addWidget(profile_widget->create_widget(profilev));
+    ui->profile_layout->layout()->addWidget(m_profile_widget->create_widget(profilev));
 
+
+    QueueRedClientSocket *sock = new QueueRedClientSocket();
+    sock->sendData();
 }
 
 QueueRedMainWindow::~QueueRedMainWindow()
@@ -33,7 +38,7 @@ void QueueRedMainWindow::connectionUI(){
     connect(ui->profile_button, SIGNAL(clicked()), this, SLOT(profile_button()));
     connect(ui->tasks_button, SIGNAL(clicked()), this, SLOT(tasks_button()));
 
-    connect(profile_widget, SIGNAL(create_signal(QPushButton*)),
+    connect(m_profile_widget, SIGNAL(create_signal(QPushButton*)),
             this, SLOT(profile_connection(QPushButton*)));
 }
 

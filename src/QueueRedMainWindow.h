@@ -46,6 +46,6 @@ private slots:
 private:
     Ui::QueueRedMainWindow *ui;
 
-    QueueRedProfileWidget *profile_widget = new QueueRedProfileWidget();
+    QueueRedProfileWidget *m_profile_widget = new QueueRedProfileWidget();
 };
 #endif // QUEUEREDMAINWINDOW_H
