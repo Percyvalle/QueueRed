@@ -11,6 +11,7 @@ UI_DIR = .build
 
 SOURCES += \
     src/QueueRedClientSocket.cpp \
+    src/QueueRedDataManager.cpp \
     src/QueueRedMainWindow.cpp \
     src/QueueRedProfile.cpp \
     src/QueueRedProfileMember.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     src/QueueRedClientSocket.h \
+    src/QueueRedDataManager.h \
     src/QueueRedMainWindow.h \
     src/QueueRedProfile.h \
     src/QueueRedProfileMember.h \
