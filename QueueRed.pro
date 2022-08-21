@@ -9,9 +9,9 @@ MOC_DIR = .build
 OBJECTS_DIR = .build
 UI_DIR = .build
 
+
 SOURCES += \
-    src/QueueRedClientSocket.cpp \
-    src/QueueRedDataManager.cpp \
+    src/QueueRedDatabaseManager.cpp \
     src/QueueRedMainWindow.cpp \
     src/QueueRedProfile.cpp \
     src/QueueRedProfileMember.cpp \
@@ -19,8 +19,7 @@ SOURCES += \
     src/main.cpp
 
 HEADERS += \
-    src/QueueRedClientSocket.h \
-    src/QueueRedDataManager.h \
+    src/QueueRedDatabaseManager.h \
     src/QueueRedMainWindow.h \
     src/QueueRedProfile.h \
     src/QueueRedProfileMember.h \

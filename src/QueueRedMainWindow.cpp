@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <QLayout>
 
-#include <src/QueueRedClientSocket.h>
+#include <src/QueueRedDatabaseManager.h>
 
 QueueRedMainWindow::QueueRedMainWindow(QWidget *_parent)
     : QMainWindow(_parent)
@@ -23,9 +23,8 @@ QueueRedMainWindow::QueueRedMainWindow(QWidget *_parent)
     QueueRedProfile *profilev = new QueueRedProfile("Vlad");
     ui->profile_layout->layout()->addWidget(m_profile_widget->create_widget(profilev));
 
-
-    QueueRedClientSocket *sock = new QueueRedClientSocket();
-    sock->sendData();
+    QueueRedDatabaseManager *dbm = new QueueRedDatabaseManager();
+    dbm->connection_db();
 }
 
 QueueRedMainWindow::~QueueRedMainWindow()
