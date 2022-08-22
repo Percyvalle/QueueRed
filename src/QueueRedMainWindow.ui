@@ -89,7 +89,7 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: rgba(245, 245, 245,0%);</string>
+        <string notr="true">background: rgba(245, 245, 245,0%);  border: 0;</string>
        </property>
        <property name="text">
         <string>СОТРУДНИКИ</string>
@@ -137,7 +137,7 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: rgba(245, 245, 245,0%);</string>
+        <string notr="true">background: rgba(245, 245, 245,0%);  border: 0;</string>
        </property>
        <property name="text">
         <string>ПРОФИЛЬ</string>
@@ -185,7 +185,7 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: rgba(245, 245, 245,0%);</string>
+        <string notr="true">background: rgba(245, 245, 245,0%);  border: 0;</string>
        </property>
        <property name="text">
         <string>ЗАДАЧИ</string>

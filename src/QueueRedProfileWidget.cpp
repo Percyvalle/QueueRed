@@ -16,7 +16,8 @@ QFrame* QueueRedProfileWidget::create_widget(QueueRedProfile* _profile){
     m_photo_label->setStyleSheet("background: rgba(245, 245, 245,100%); border-radius: 30;");
 
     m_button_profile = new QPushButton();
-    m_button_profile->setStyleSheet("background: rgba(245, 245, 245,0%);");
+    m_button_profile->setStyleSheet("background: rgba(245, 245, 245,0%); border: 0;");
+    m_button_profile->setMinimumSize(QSize(60,90));
     m_button_profile->setText(_profile->getName());
 
     m_layout_profile = new QHBoxLayout();

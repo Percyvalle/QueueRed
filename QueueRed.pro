@@ -11,6 +11,7 @@ UI_DIR = .build
 
 
 SOURCES += \
+    src/QueueRedAuthentication.cpp \
     src/QueueRedDatabaseManager.cpp \
     src/QueueRedMainWindow.cpp \
     src/QueueRedProfile.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
     src/main.cpp
 
 HEADERS += \
+    src/QueueRedAuthentication.h \
     src/QueueRedDatabaseManager.h \
     src/QueueRedMainWindow.h \
     src/QueueRedProfile.h \
@@ -26,6 +28,7 @@ HEADERS += \
     src/QueueRedProfileWidget.h
 
 FORMS += \
+    src/QueueRedAuthentication.ui \
     src/QueueRedMainWindow.ui
 
 RESOURCES += \
