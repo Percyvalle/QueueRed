@@ -1,6 +1,12 @@
+#ifndef QUEUEREDPROFILEMAIN_H
+#define QUEUEREDPROFILEMAIN_H
+
 #include "QueueRedProfile.h"
 
-QueueRedProfile::QueueRedProfile(int _id,
+class QueueRedProfileMain : public QueueRedProfile
+{
+public:
+    explicit QueueRedProfileMain(int _id,
                                  int _workplace,
                                  int _workphone,
                                  int _phone,
@@ -10,17 +16,7 @@ QueueRedProfile::QueueRedProfile(int _id,
                                  QString _name,
                                  QString _position,
                                  QString _subdivision,
-                                 QString _status)
-{
-    this->m_name = _name;
-}
+                                 QString _status);
+};
 
-const QString &QueueRedProfile::getName() const
-{
-    return m_name;
-}
-
-void QueueRedProfile::setName(const QString &newName)
-{
-    m_name = newName;
-}
+#endif // QUEUEREDPROFILEMAIN_H

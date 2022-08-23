@@ -13,7 +13,17 @@
 class QueueRedProfile
 {
 public:
-    explicit QueueRedProfile(QString _name);
+    explicit QueueRedProfile(int _id,
+                             int _workplace,
+                             int _workphone,
+                             int _phone,
+                             QString _login,
+                             QString _birthday,
+                             QString _addinfo,
+                             QString _name,
+                             QString _position,
+                             QString _subdivision,
+                             QString _status);
 
     const QString &getName() const;
     void setName(const QString &newName);

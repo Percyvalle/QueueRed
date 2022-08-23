@@ -11,20 +11,14 @@ QueueRedMainWindow::QueueRedMainWindow(QWidget *_parent)
     , ui(new Ui::QueueRedMainWindow)
 {
     ui->setupUi(this);
+    connectionAUTH();
+    auth_dialog_ready();
+
     connectionUI();
+    init_icon();
 
-    QPixmap icon_search(":/resource/resource/icon_search.png");
-    ui->icon_search->setPixmap(icon_search.scaled(20, 20, Qt::KeepAspectRatio));
-
-    QueueRedProfile *profile = new QueueRedProfile("Danya");
-    ui->profile_layout->layout()->addWidget(m_profile_widget->create_widget(profile));
-    QueueRedProfile *profilek = new QueueRedProfile("Kirill");
-    ui->profile_layout->layout()->addWidget(m_profile_widget->create_widget(profilek));
-    QueueRedProfile *profilev = new QueueRedProfile("Vlad");
-    ui->profile_layout->layout()->addWidget(m_profile_widget->create_widget(profilev));
-
-    QueueRedDatabaseManager *dbm = new QueueRedDatabaseManager();
-    dbm->connection_db();
+    //QueueRedProfile *profile = new QueueRedProfile("Danya");
+    //ui->profile_layout->layout()->addWidget(m_profile_widget->create_widget(profile));
 }
 
 QueueRedMainWindow::~QueueRedMainWindow()
@@ -32,6 +26,26 @@ QueueRedMainWindow::~QueueRedMainWindow()
     delete ui;
 }
 
+/*-------------------------Авторизация-------------------------*/
+void QueueRedMainWindow::connectionAUTH()
+{
+    connect(m_auth_dialog, SIGNAL(auth_done(QString, QString)), this, SLOT(auth_done_show(QString, QString)));
+}
+
+void QueueRedMainWindow::auth_dialog_ready()
+{
+    m_auth_dialog->setWindowTitle("Авторизация");
+    m_auth_dialog->exec();
+}
+
+void QueueRedMainWindow::auth_done_show(QString _login, QString _pass)
+{
+    m_auth_dialog->close();
+    show();
+}
+
+
+/*-------------------------Основное окно-------------------------*/
 void QueueRedMainWindow::connectionUI(){
     connect(ui->employees_button, SIGNAL(clicked()), this, SLOT(employees_button()));
     connect(ui->profile_button, SIGNAL(clicked()), this, SLOT(profile_button()));
@@ -39,6 +53,12 @@ void QueueRedMainWindow::connectionUI(){
 
     connect(m_profile_widget, SIGNAL(create_signal(QPushButton*)),
             this, SLOT(profile_connection(QPushButton*)));
+}
+
+void QueueRedMainWindow::init_icon()
+{
+    QPixmap icon_search(":/resource/resource/icon_search.png");
+    ui->icon_search->setPixmap(icon_search.scaled(20, 20, Qt::KeepAspectRatio));
 }
 
 void QueueRedMainWindow::employees_button()
@@ -68,17 +88,3 @@ void QueueRedMainWindow::profile_members_button()
     QPushButton *sender_button = (QPushButton*)sender();
     qDebug() << sender_button->text();
 }
-
-// Позже
-//void QueueRedMainWindow::sendData() {
-//    QNetworkRequest request(QUrl("http://127.0.0.1:2000"));
-//    QNetworkAccessManager *mngr = new QNetworkAccessManager(this);
-//    connect(mngr, SIGNAL(finished(QNetworkReply*)), SLOT(getResponse(QNetworkReply*)));
-//    mngr->get(request);
-//}
-
-//void QueueRedMainWindow::getResponse(QNetworkReply *reply)
-//{
-//    qDebug() << reply->readAll();
-//}
-

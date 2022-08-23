@@ -12,7 +12,17 @@
 class QueueRedProfileMember : public QueueRedProfile
 {
 public:
-    QueueRedProfileMember(QString _name);
+    QueueRedProfileMember(int _id,
+                          int _workplace,
+                          int _workphone,
+                          int _phone,
+                          QString _login,
+                          QString _birthday,
+                          QString _addinfo,
+                          QString _name,
+                          QString _position,
+                          QString _subdivision,
+                          QString _status);
 };
 
 #endif // QUEUEREDPROFILEMEMBER_H

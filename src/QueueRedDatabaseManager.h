@@ -10,12 +10,13 @@ class QueueRedDatabaseManager
 public:
     explicit QueueRedDatabaseManager();
 
-    void connection_db();
+    static void connection_db();
+    static bool auth_check(QString _login, QString _pass);
 
 private:
 
-    QSqlDatabase m_database = QSqlDatabase::addDatabase("QPSQL");
-    QSqlQuery *m_query = new QSqlQuery(m_database);
+    static QSqlDatabase m_database;
+    static QSqlQuery *m_query;
 };
 
 #endif // QUEUEREDDATABASEMANAGER_H

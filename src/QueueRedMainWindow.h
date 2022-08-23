@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "QueueRedProfile.h"
 #include "QueueRedProfileWidget.h"
+#include "QueueRedAuth.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class QueueRedMainWindow; }
@@ -18,6 +19,9 @@ public:
     ~QueueRedMainWindow();
 
     void connectionUI();
+    void connectionAUTH();
+    void init_icon();
+    void auth_dialog_ready();
 
 private slots:
     /***
@@ -40,12 +44,13 @@ private slots:
      * @param but Кнопка для коннекта с основным окном
      ***/
     void profile_connection(QPushButton* but);
-
     void profile_members_button();
+    void auth_done_show(QString _login, QString _pass);
 
 private:
     Ui::QueueRedMainWindow *ui;
 
     QueueRedProfileWidget *m_profile_widget = new QueueRedProfileWidget();
+    QueueRedAuth *m_auth_dialog = new QueueRedAuth();
 };
 #endif // QUEUEREDMAINWINDOW_H

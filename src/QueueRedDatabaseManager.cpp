@@ -17,11 +17,22 @@ void QueueRedDatabaseManager::connection_db()
         QMessageBox::warning(0, "Ошибка БД", m_database.lastError().text());
     } else {
         QMessageBox::information(0, "Успешно", "Соединение с БД установлено!");
-
-        QSqlQuery *m_query = new QSqlQuery(m_database);
-        m_query->exec("SELECT * FROM profile");
-        m_query->next();
-        qDebug() << m_query->value("name").toString();
     }
 
 }
+
+bool QueueRedDatabaseManager::auth_check(QString _login, QString _pass)
+{
+    m_query->exec("SELECT * FROM profile_auth");
+    while(m_query->next()){
+        if(m_query->value("login").toString() == _login &&
+           m_query->value("password").toString() == _pass){
+            return true;
+        }
+    }
+
+    return false;
+}
+
+QSqlDatabase QueueRedDatabaseManager::m_database = QSqlDatabase::addDatabase("QPSQL");
+QSqlQuery *QueueRedDatabaseManager::m_query = new QSqlQuery(m_database);
