@@ -16,7 +16,8 @@ public:
     explicit QueueRedProfile(int _id,
                              int _workplace,
                              int _workphone,
-                             int _phone,
+                             int _busyness,
+                             QString _phone,
                              QString _login,
                              QString _birthday,
                              QString _addinfo,
@@ -24,12 +25,19 @@ public:
                              QString _position,
                              QString _subdivision,
                              QString _status);
-
-    const QString &getName() const;
-    void setName(const QString &newName);
-
-private:
+protected:
+    int m_id;
+    int m_workplace;
+    int m_workphone;
+    int m_busyness;
+    QString m_phone;
+    QString m_login;
+    QString m_birthday;
+    QString m_addinfo;
     QString m_name;
+    QString m_position;
+    QString m_subdivision;
+    QString m_status;
 };
 
 #endif // QUEUEREDPROFILE_H

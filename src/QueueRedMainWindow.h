@@ -18,11 +18,6 @@ public:
     QueueRedMainWindow(QWidget *_parent = nullptr);
     ~QueueRedMainWindow();
 
-    void connectionUI();
-    void connectionAUTH();
-    void init_icon();
-    void auth_dialog_ready();
-
 private slots:
     /***
      * @brief Слот отвечающий за реакцию на нажание кнопки "Сотрудники"
@@ -45,12 +40,21 @@ private slots:
      ***/
     void profile_connection(QPushButton* but);
     void profile_members_button();
-    void auth_done_show(QString _login, QString _pass);
+    void auth_done_show(QueueRedProfileMain* _profile_main, QVector<QueueRedProfileMember*> _members_list);
 
 private:
+    void connectionUI();
+    void connectionAUTH();
+    void init_icon();
+    void auth_dialog_ready();
+    void set_profile_main_ui();
+    void update_profile_area();
+
     Ui::QueueRedMainWindow *ui;
 
     QueueRedProfileWidget *m_profile_widget = new QueueRedProfileWidget();
+    QueueRedProfileMain *m_profile_main;
+    QVector<QueueRedProfileMember*> m_members_list;
     QueueRedAuth *m_auth_dialog = new QueueRedAuth();
 };
 #endif // QUEUEREDMAINWINDOW_H

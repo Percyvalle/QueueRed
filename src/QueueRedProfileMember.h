@@ -15,7 +15,8 @@ public:
     QueueRedProfileMember(int _id,
                           int _workplace,
                           int _workphone,
-                          int _phone,
+                          int _busyness,
+                          QString _phone,
                           QString _login,
                           QString _birthday,
                           QString _addinfo,
@@ -23,6 +24,17 @@ public:
                           QString _position,
                           QString _subdivision,
                           QString _status);
+
+    const QString &name() const;
+    const QString &birthday() const;
+    const QString &addinfo() const;
+    const QString &position() const;
+    const QString &subdivision() const;
+    const QString &status() const;
+    int workphone() const;
+    int workplace() const;
+    int busyness() const;
+    int id() const;
 };
 
 #endif // QUEUEREDPROFILEMEMBER_H

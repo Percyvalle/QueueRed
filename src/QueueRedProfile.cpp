@@ -3,7 +3,8 @@
 QueueRedProfile::QueueRedProfile(int _id,
                                  int _workplace,
                                  int _workphone,
-                                 int _phone,
+                                 int _busyness,
+                                 QString _phone,
                                  QString _login,
                                  QString _birthday,
                                  QString _addinfo,
@@ -12,15 +13,16 @@ QueueRedProfile::QueueRedProfile(int _id,
                                  QString _subdivision,
                                  QString _status)
 {
-    this->m_name = _name;
-}
-
-const QString &QueueRedProfile::getName() const
-{
-    return m_name;
-}
-
-void QueueRedProfile::setName(const QString &newName)
-{
-    m_name = newName;
+    m_id = _id;
+    m_busyness = _busyness;
+    m_workplace = _workplace;
+    m_workphone = _workphone;
+    m_phone = _phone;
+    m_login = _login;
+    m_birthday = _birthday;
+    m_addinfo = _addinfo;
+    m_name = _name;
+    m_position = _position;
+    m_subdivision = _subdivision;
+    m_status = _status;
 }

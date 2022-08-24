@@ -27,8 +27,8 @@ void QueueRedAuth::button_auth_clicked()
 {
     if (QueueRedDatabaseManager::auth_check(ui->line_login->text(), ui->line_password->text()))
     {
-        emit auth_done(ui->line_login->text(),
-                       ui->line_password->text());
+        emit auth_done(QueueRedDatabaseManager::create_main_profile(ui->line_login->text()),
+                       QueueRedDatabaseManager::create_members_list(ui->line_login->text()));
     } else {
 
         ui->labe_status->setText("Неправильный пароль или логин");

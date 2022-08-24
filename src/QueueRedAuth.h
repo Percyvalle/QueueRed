@@ -19,7 +19,7 @@ public:
     void connectionUI();
 
 signals:
-    void auth_done(QString, QString);
+    void auth_done(QueueRedProfileMain*, QVector<QueueRedProfileMember*>);
 
 private slots:
     void button_auth_clicked();

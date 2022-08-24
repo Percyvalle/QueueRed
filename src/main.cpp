@@ -9,7 +9,10 @@ int main(int argc, char *argv[])
 
     w.setWindowTitle("QueueRed");
     w.setFixedSize(QSize(950, 800));
-    //w.show();
 
-    return a.exec();
+    if (!a.exec()){
+        QueueRedDatabaseManager::set_offline();
+    }
+
+    return 0;
 }

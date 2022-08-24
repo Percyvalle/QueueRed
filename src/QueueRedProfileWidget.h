@@ -1,7 +1,7 @@
 #ifndef QUEUEREDPROFILEWIDGET_H
 #define QUEUEREDPROFILEWIDGET_H
 
-#include "QueueRedProfile.h"
+#include "QueueRedProfileMember.h"
 
 #include <QHBoxLayout>
 #include <QLabel>
@@ -9,6 +9,11 @@
 #include <QPushButton>
 #include <QWidget>
 #include <QGroupBox>
+
+enum busyness{
+    ready=0,
+    noready=1
+};
 
 /*!
  * \brief Класс для представления визиток для пользователей
@@ -21,7 +26,7 @@ public:
 
     ~QueueRedProfileWidget();
 
-    QFrame* create_widget(QueueRedProfile* _profile);
+    QFrame* create_widget(QueueRedProfileMember* _profile);
 
     void hide_widget();
 
